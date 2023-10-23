@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+     'movieApp.apps.MovieappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,10 +76,11 @@ WSGI_APPLICATION = 'movieProj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres',
-        'NAME': 'movieProj',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'movieproj',
         'USER': 'postgres',
         'PASSWORD': 'postgres123',
+        'HOST': 'localhost',
     }
 }
 

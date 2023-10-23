@@ -23,7 +23,7 @@ class Pelicula(models.Model):
     estudio = models.ForeignKey(Estudio, on_delete=models.CASCADE)
     fechaEstreno = models.DateField()
     enCines = models.BooleanField()
-    poster = models.ImageField(upload_to="peliculas", null=True)
+    posterURL = models.CharField(max_length=200)
 
     def __str__(self):
         return self.titulo

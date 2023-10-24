@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block css %}
+  <link rel="stylesheet" href="../static/movie.css" />
+{% endblock %} {% block title %}
+  {{pelicula.titulo}}
+{% endblock %} {% block content %}
+<div class="container">
+<div class="pelicula">
+    <img src="https://image.tmdb.org/t/p/w500{{pelicula.posterURL}}"/>
+    <div class="details">
+      <h1>{{pelicula.titulo}}</h1>
+      <p>{{pelicula.descripcion}}</p>
+        <p>Fecha de estreno: {{pelicula.fechaEstreno}}</p>
+        {% comment %} pais {% endcomment %}
+        <p>Pais: {{pelicula.pais}}</p>
+        {% comment %} estudio {% endcomment %}
+        <p>Estudio: {{pelicula.estudio}}</p>
+        {% comment %} duracion {% endcomment %}
+        <p>Duración: {{pelicula.duracion}} min</p>
+
+        {% comment %} generos {% endcomment %}
+        <p>Géneros: 
+        {% for genero in pelicula.generos.all %}
+        {{genero.nombre}}, 
+        {% endfor %}</p>
+        {% comment %} actores {% endcomment %}
+        Cast:
+        <div class="cast_box">
+            {% for actor in pelicula.creditos.all %}
+                <div class="char_box">
+                    <img src="https://image.tmdb.org/t/p/w500{{actor.imgURL}}" width=50/>
+                    <p>{{actor.nombre}}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+<div class="reviews">
+  {% for review in reviews %}
+  <div class="movie_card">
+    <img src="https://image.tmdb.org/t/p/w500{{pelicula.posterURL}}" />
+    <div class="details">
+      <h3>{{pelicula.titulo}}</h3>
+      <p>{{pelicula.descripcion}}</p>
+      <a href="/pelicula/{{pelicula.id}}">Ver más</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block css %}
+  <link rel="stylesheet" href="static/home.css" />
+{% endblock %} {% block title %}
+  Home
+{% endblock %} {% block content %}
+<div class="container">
+  {% for pelicula in peliculas %}
+  <div class="movie_card">
+    <img src="https://image.tmdb.org/t/p/w500{{pelicula.posterURL}}" />
+    <div class="details">
+      <h3>{{pelicula.titulo}}</h3>
+      <p>{{pelicula.descripcion}}</p>
+      <a href="/pelicula/{{pelicula.id}}">Ver más</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Movies |{% block title %}
+
+      {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'global.css' %}" />
+    {% block css %}
+
+    {% endblock %}
+  </head>
+  <body>
+    <header class="navbar">
+      <nav>
+      
+      <a href="{% url 'home' %}"><h1>Movie App</h1></a>
+        <ul>
+          <li>
+            <a href="{% url 'home' %}">Home</a>
+          </li>
+          <li>
+            <a href="">Review</a>
+          </li>
+          <li>
+            <a href="">Recomendaciones</a>
+          </li>
+          <li>
+              {% if request.user.is_authenticated %}
+              <a href="/logout/">Logout</a>
+              {% else %}
+              <a href="/login/">Login</a>
+              {% endif %}
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {% block content %}
+
+      {% endblock %}
+    </main>
+  </body>
+</html>

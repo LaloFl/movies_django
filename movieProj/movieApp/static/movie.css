@@ -1,0 +1,41 @@
+.container {
+  margin: 30px;
+}
+
+.pelicula {
+  display: flex;
+  flex-direction: row;
+}
+.pelicula img {
+  border-radius: 30px;
+}
+
+.details {
+  margin-left: 20px;
+}
+
+.cast_box {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: start;
+}
+
+.char_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  text-align: center;
+}
+
+.char_box img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+
+  border-radius: 100%;
+}

@@ -33,17 +33,17 @@
             {% endfor %}
         </div>
 
+        <a href="/review/{{pelicula.id}}">Hacer review</a>
+
     </div>
 </div>
+<h1>Reviews</h1>
 <div class="reviews">
   {% for review in reviews %}
-  <div class="movie_card">
-    <img src="https://image.tmdb.org/t/p/w500{{pelicula.posterURL}}" />
-    <div class="details">
-      <h3>{{pelicula.titulo}}</h3>
-      <p>{{pelicula.descripcion}}</p>
-      <a href="/pelicula/{{pelicula.id}}">Ver más</a>
-    </div>
+  <div class="review">
+  <h3>'{{review.usuario}}' dice:</h3>
+    <p>{{review.comentario}}</p>
+    <h2>{{review.calificacion}}/10</h2>
   </div>
   {% endfor %}
 </div>

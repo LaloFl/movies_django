@@ -7,8 +7,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.home, name="home"),
     path("pelicula/<int:id>", views.pelicula_d, name="pelicula"),
-    # path("register/", views.Register.as_view(), name="register"),
-    path(
-        "login/", auth_views.LoginView.as_view(template_name="login.html"), name="login"),
+    path("login/", auth_views.LoginView.as_view(template_name="login.html"), name="login"),
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+    path("register/", views.Register.as_view(), name="register"),
+    path("review/<int:p_id>/", views.ReviewView.as_view(), name="NewReview"),
+
 ]
